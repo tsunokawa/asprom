@@ -6,12 +6,12 @@ WORKDIR /go/src/github.com/alicebob
 ARG ASPROM_VERSION=1.0.1
 
 RUN apk add --no-cache git \
-    && git clone https://github.com/alicebob/asprom.git \
+    && git clone https://github.com/tsunokawa/asprom.git \
     && cd asprom \
     && git fetch --all --tags --prune \
     && git checkout tags/$ASPROM_VERSION
 
-WORKDIR /go/src/github.com/alicebob/asprom
+WORKDIR /go/src/github.com/tsunokawa/asprom
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o asprom .
 
@@ -24,7 +24,7 @@ RUN apk --no-cache add ca-certificates
 
 WORKDIR /root/
 
-COPY --from=builder /go/src/github.com/alicebob/asprom .
+COPY --from=builder /go/src/github.com/tsunokawa/asprom .
 
 EXPOSE 9145
 
