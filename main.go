@@ -38,7 +38,7 @@ var (
 	version     = "master"
 	showVersion = flag.Bool("version", false, "show version")
 	addr        = flag.String("listen", ":9145", "listen address for prometheus")
-	nodeAddr    = flag.String("node", "127.0.0.1:3000", "aerospike node")
+	nodeAddr    = flag.String("node", "172.18.0.2:3000", "aerospike node")
 	username    = flag.String("username", "", "username. Leave empty for no authentication. ENV variable AS_USERNAME, if set, will override this.")
 	password    = flag.String("password", "", "password. ENV variable AS_PASSWORD, if set, will override this.")
 
